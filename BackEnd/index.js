@@ -1,0 +1,12 @@
+let express=require("express")
+let mongoose=require("mongoose")
+let cors=require("cors")
+const route=require("./routes/resroute")
+let app=express()
+app.use(cors())
+app.use(express.json())
+mongoose.connect("mongodb://127.0.0.1:27017/userdb").then(()=>{
+    console.log("okk")
+})
+app.use("/",route)
+app.listen(5000)
